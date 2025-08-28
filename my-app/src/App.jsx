@@ -6,9 +6,11 @@ function App() {
 
   return (
     <>
-
-      <h2 id='greeting'>What do you want to memorize?</h2>
-      <input id='input-field' type="text" placeholder="Add notes here" />
+      <div id='header'>
+        <strong id='greeting'>What do you want to memorize?</strong>
+        <p id='sub-greeting'>Capture your thoughts and make them stick</p>
+      </div>
+      <textarea id='input-field' placeholder="Add notes here" />
       <input id='submit-button' type="submit" value="Submit" />
 
     </>
