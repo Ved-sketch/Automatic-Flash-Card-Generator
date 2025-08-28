@@ -6,13 +6,11 @@ function App() {
 
   return (
     <>
-      <div className="App" id='greeting'>
-        <h1>Hello!</h1>
-      </div>
 
-      <div className="App" id='input-field'>
-        <input type="text" placeholder="Type your text here..." />
-      </div>
+      <h2 id='greeting'>What do you want to memorize?</h2>
+      <input id='input-field' type="text" placeholder="Add notes here" />
+      <input id='submit-button' type="submit" value="Submit" />
+
     </>
   )
 }
