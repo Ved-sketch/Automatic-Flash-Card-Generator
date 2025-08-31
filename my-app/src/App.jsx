@@ -25,11 +25,7 @@ function App() {
   }
 
   if (showFlashCard) {
-    return (
-      <>
-        <FlashCard notes={submittedNotes} onBack={handleBackToInput} />
-      </>
-    );
+    return <FlashCard notes={submittedNotes} onBack={handleBackToInput} />
   }
 
   return (

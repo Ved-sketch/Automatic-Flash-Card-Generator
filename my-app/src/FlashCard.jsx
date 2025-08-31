@@ -1,14 +1,17 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import './FlashCard.css';
 
 export default function FlashCard({notes}) {
     const [flipped, setFlipped] = useState(false);
 
-    // const activateFlashcardMode = () => {
-    //     document.getElementById("root").style.backgroundColor = "purple";
-    // };
-
-    {document.getElementById("root").style.backgroundColor = "#6009bdff";}
+    useEffect(() => {
+        document.getElementById("root").style.backgroundColor = "#6009bdff";
+        
+        // Cleanup when component unmounts
+        return () => {
+            document.getElementById("root").style.backgroundColor = "#454545";
+        };
+    }, []);
 
     const handleFlip = () =>{
         setFlipped(!flipped);
