@@ -8,7 +8,6 @@ function App() {
   const [submittedNotes, setSubmittedNotes] = useState("")
   const [showFlashCard,setShowFlashCard] = useState(false);
 
-
   const handleSubmit = () => {
     if(inputText.trim() === ""){
       alert("Please add some text first!!");
@@ -26,11 +25,16 @@ function App() {
   }
 
   if (showFlashCard) {
-    return <FlashCard notes={submittedNotes} onBack={handleBackToInput} />
+    return (
+      <>
+        <FlashCard notes={submittedNotes} onBack={handleBackToInput} />
+      </>
+    );
   }
 
   return (
     <>
+      
       <div id='header'>
         <strong id='greeting'>What do you want to memorize?</strong>
         <p id='sub-greeting'>Capture your thoughts and make them stick</p>
