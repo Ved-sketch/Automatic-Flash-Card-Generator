@@ -4,11 +4,12 @@
 
 #root {
   /* background-color: var(--background-color); */
-  margin: 0 auto;
+  margin: 0 auto 6rem auto;
 }
 
 body {
   background-color: var(--background-color);
+  padding-bottom: 8rem;
 }
 
 @media (min-width: 768px) {
@@ -18,4 +19,81 @@ body {
     padding: 5rem 8rem;
     box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.4);
   }
+}
+
+.flashcard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.navigation-controls-outside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0.75rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    width: auto;
+    min-width: fit-content;
+}
+
+.navigation-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0;
+}
+
+.nav-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #2575fc;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover:not(:disabled) {
+    background-color: #1a5bb8;
+}
+
+.nav-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.card-counter {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+}
+
+.back-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #dc3545;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #c82333;
 }
