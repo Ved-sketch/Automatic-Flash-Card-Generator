@@ -6,7 +6,20 @@ export default function FlashCard({notes, onBack}) {
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     
     // Split notes into individual cards (assuming they're separated by double newlines)
-    const cards = notes.split('\n\n').filter(card => card.trim() !== '');
+    const splitNotes = notes.split('\n\n').filter(card => card.trim() !== '');
+
+    // creating proper card pairs
+    const cards = [];
+    for(let i = 0;i < splitNotes.length; i+=2){
+        if(splitNotes[i] && splitNotes[i+1]){
+            cards.push({
+                "question": splitNotes[i].replace(/^Q:\s*/, ''),
+                "answer": splitNotes[i+1].replace(/^A:\s*/, '')
+            });
+        }
+    }
+
+    const currentCard = cards[currentCardIndex];
 
     useEffect(() => {
         document.getElementById("root").style.backgroundColor = "#6009bdff";
@@ -42,12 +55,12 @@ export default function FlashCard({notes, onBack}) {
                     {!flipped ? (
                         <div>
                             <p>Question:</p>
-                            <p>{cards[currentCardIndex]}</p>
+                            <p>{currentCard?.question}</p>
                         </div>
                     ) : (
                         <div>
                             <p>Answer:</p>
-                            <p>{cards[currentCardIndex]}</p>
+                            <p>{currentCard?.answer}</p>
                         </div>
                     )}
                 </div>
