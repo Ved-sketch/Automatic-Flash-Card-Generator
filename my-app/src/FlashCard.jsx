@@ -89,9 +89,13 @@ export default function FlashCard({notes, onBack}) {
                     </button>
                 </div>
 
-                <button className='back-button' onClick={onBack}>
-                    Back to Input
-                </button>
+                <div className='buttons-container'>
+                    <button className='back-button' onClick={onBack}>
+                        Back to Input
+                    </button>
+
+                    <button className="add-button">Add Card</button>
+                </div>
             </div>
         </>
     )
