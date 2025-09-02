@@ -6,37 +6,68 @@ import AiMode from './AiMode'
 function App() {
   
   const [inputText, setInputText] = useState("")
-  const [submittedNotes, setSubmittedNotes] = useState("")
+  const [cards, setCards] = useState([]) // Store cards array instead of notes string
   const [showFlashCard, setShowFlashCard] = useState(false);
   const [aiMode, setAiMode] = useState(false);
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
 
+  const parseNotesToCards = (notes) => {
+    const splitNotes = notes.split('\n\n').filter(card => card.trim() !== '');
+    const parsedCards = [];
+    
+    for(let i = 0; i < splitNotes.length; i += 2) {
+      if(splitNotes[i] && splitNotes[i+1]) {
+        parsedCards.push({
+          question: splitNotes[i].replace(/^Q:\s*/, ''),
+          answer: splitNotes[i+1].replace(/^A:\s*/, '')
+        });
+      }
+    }
+    return parsedCards;
+  }
+
   const handleSubmit = () => {
+    let newCards = [];
+    
     if(aiMode) {
       if(inputText.trim() === ""){
         alert("Please add some text first!!");
         return;
       }
-      setSubmittedNotes(inputText)
+      newCards = parseNotesToCards(inputText);
     } else {
       if(question.trim() === "" || answer.trim() === ""){
         alert("Please fill both question and answer fields!!");
         return;
       }
-      // Combine question and answer for the flashcard
-      setSubmittedNotes(`Q: ${question}\n\nA: ${answer}`)
+      // Create a single card from question and answer
+      newCards = [{
+        question: question.trim(),
+        answer: answer.trim()
+      }];
     }
     
-    setShowFlashCard(true)
-    console.log("Submitted content:", aiMode ? inputText : `Q: ${question} A: ${answer}`);
+    // Add new cards to existing cards
+    setCards(prevCards => [...prevCards, ...newCards]);
+    setInputText("");
+    setQuestion("");
+    setAnswer("");
+    setShowFlashCard(true);
+    console.log("Submitted cards:", newCards);
   }
 
   const handleBackToInput = () => {
-    setShowFlashCard(false)
-    setInputText("")
-    setQuestion("")
-    setAnswer("")
+    setShowFlashCard(false);
+    // Don't clear the cards, keep them persistent
+    setInputText("");
+    setQuestion("");
+    setAnswer("");
+  }
+
+  const handleAddCard = () => {
+    setShowFlashCard(false);
+    // Keep existing cards, just go back to input to add more
   }
 
   const toggleMode = () => {
@@ -47,9 +78,13 @@ function App() {
     setAnswer("")
   }
 
-  if (showFlashCard) {
+  if (showFlashCard && cards.length > 0) {
     return (
-      <FlashCard notes={submittedNotes} onBack={handleBackToInput} />
+      <FlashCard 
+        cards={cards} 
+        onBack={handleBackToInput} 
+        onAddCard={handleAddCard}
+      />
     );
   }
 
