@@ -9,7 +9,8 @@
 
 body {
   padding: 2rem;
-  background: var(--background-color);
+  /* background: var(--background-color); */
+  background-image: url('./assets/Gemini_Generated_Image_d8cvc2d8cvc2d8cv.png');
 }
 
 

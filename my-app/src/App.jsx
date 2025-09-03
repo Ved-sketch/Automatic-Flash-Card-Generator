@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import FlashCard from './FlashCard'
 import AiMode from './AiMode'
+import "/src/assets/Gemini_Generated_Image_d8cvc2d8cvc2d8cv.png"
 
 function App() {
   
@@ -90,6 +91,17 @@ function App() {
 
   return (
     <>
+
+      <img src="/src/assets/Gemini_Generated_Image_d8cvc2d8cvc2d8cv.png" alt="Background" style={{
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        zIndex: -1
+      }} />
+      
       <div className="mode-toggle">
         <button className="toggle-button" onClick={toggleMode}>
           {aiMode ? 'Switch to Normal Mode' : 'Switch to AI Mode'}

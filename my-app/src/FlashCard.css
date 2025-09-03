@@ -1,5 +1,5 @@
 :root {
-  --background-color: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  /* --background-color: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); */
 }
 
 #root {
@@ -8,7 +8,11 @@
 }
 
 body {
-  background-color: var(--background-color);
+  background-image: url('./Gemini_Generated_Image_d8cvc2d8cvc2d8cv.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
   padding-bottom: 8rem;
 }
 
@@ -124,3 +128,4 @@ body {
 .add-button:hover {
     background-color: #218838;
 }
+
