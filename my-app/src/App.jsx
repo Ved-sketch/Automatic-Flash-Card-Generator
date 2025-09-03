@@ -94,14 +94,14 @@ function App() {
 
       <img src="/src/assets/Gemini_Generated_Image_d8cvc2d8cvc2d8cv.png" alt="Background" style={{
         width: '100%',
-        height: '100%',
+        height: '100vh',
         objectFit: 'cover',
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
         left: 0,
         zIndex: -1
       }} />
-      
+
       <div className="mode-toggle">
         <button className="toggle-button" onClick={toggleMode}>
           {aiMode ? 'Switch to Normal Mode' : 'Switch to AI Mode'}
