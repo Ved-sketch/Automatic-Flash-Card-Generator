@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import "./AiMode.css"
+import FlashCard from './FlashCard';
 
 export default function AiMode({onAiSubmit, onBack}) {
 
