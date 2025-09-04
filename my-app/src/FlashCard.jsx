@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import "/src/assets/Gemini_Generated_Image_d8cvc2d8cvc2d8cv.png"
 import './FlashCard.css';
 
 export default function FlashCard({cards, onBack, onAddCard}) {
@@ -45,6 +46,17 @@ export default function FlashCard({cards, onBack, onAddCard}) {
 
     return(
         <>
+
+            <img src="/src/assets/Gemini_Generated_Image_d8cvc2d8cvc2d8cv.png" alt="Background" style={{
+                width: '100%',
+                height: '100vh',
+                objectFit: 'cover',
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                zIndex: -1
+            }} />
+
             <div className='flashcard-container'>
                 <div className='card' onClick={handleFlip}>
                     {!flipped ? (

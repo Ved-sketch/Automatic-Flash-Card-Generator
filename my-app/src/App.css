@@ -2,7 +2,7 @@
   max-width: 1280px;
   text-align: center;
   padding: 2rem;
-  background-color: #454545;
+  background-color: rgba(69, 69, 69, 0);
   border-radius: 15px;
   box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.4);
 }
@@ -12,7 +12,6 @@ body {
   /* background: var(--background-color); */
   background-image: url('./assets/Gemini_Generated_Image_d8cvc2d8cvc2d8cv.png');
 }
-
 
 #greeting {
   font-size: 32px;
